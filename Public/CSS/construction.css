@@ -1,0 +1,276 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* Variables */
+:root {
+  --color-primary: #7b7b7b;
+  --color-primary-dark: #4a4a4a;
+
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --text-light: #ffffff;
+
+  --background-light: #f0f0f0;
+  --background-dark: #d1d1d1;
+  --background-footer: #c4c4c4;
+
+  --overlay-light: rgba(255, 255, 255, 0.3);
+    /* ... autres couleurs ... */
+  --color-accent: #ff69b4; /* rose bonbon */
+  --btn-bg: var(--color-accent);
+  --btn-bg-hover: #e85aa8; /* version plus sombre pour hover */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--overlay-light);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #000;
+  position: relative;
+ background: linear-gradient(
+  45deg,
+  #8c8c8c,
+  #b0b0b0,
+  #d1d1d1,
+  #b0b0b0,
+  #8c8c8c,
+  #6e6e6e
+);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glitter 4s linear infinite;
+  user-select: none;
+}
+
+@keyframes glitter {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.letter-candy-a {
+  display: inline-block;
+  width: 30px;
+  height: 34px;
+  background-image: url('../IMAGES/lettreaa-removebg-preview.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position:center;
+  margin: 0 2px;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var( --text-secondary);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 5px;
+  z-index: 1010;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  transition: all 0.3s;
+}
+
+/* Section Hero */
+#hero {
+  padding: 2rem 1rem;
+  background-color: var(--background);
+  text-align: center;
+}
+
+/* Animation conservée */
+#hero h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: var(--text-primary);
+  border-right: 2px solid var(--text-primary);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 10s steps(40, end) infinite, blink 0.75s step-end infinite;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Sur petit écran, on autorise le retour à la ligne, mais on garde l'animation */
+@media (max-width: 400px) {
+  #hero h2 {
+    font-size: 2rem;
+    white-space: normal; /* autorise le retour à la ligne */
+    max-width: 90vw;
+  }
+}
+
+/* Animation reste inchangée */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* Paragraph */
+#hero p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Images */
+.hero-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/*Typing animation keyframes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/*Responsive */
+@media (max-width: 400px) {
+  #hero h2 {
+    font-size: 1.8rem;
+  }
+
+  #hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 0.75rem 1.75rem;
+  background-color: #333; /* Gris foncé sobre */
+  color: #fff; /* Texte blanc */
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn:hover {
+  background-color: #555; /* Gris légèrement plus clair au survol */
+  transform: translateY(-2px); /* petit effet de survol */
+}
+/*page en cour de construction*/
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+   margin: 0 auto;
+}
